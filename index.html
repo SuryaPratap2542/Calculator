@@ -6,10 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator Using HTML</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/skins/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <!-- ...Style Switcher.... -->
+    <link rel="stylesheet" href="css/skins/color-1.css" class="alternate-style" title="color-1" disabled>
+    <link rel="stylesheet" href="css/skins/color-2.css" class="alternate-style" title="color-2" disabled>
+    <link rel="stylesheet" href="css/skins/color-3.css" class="alternate-style" title="color-3" disabled>
+    <link rel="stylesheet" href="css/skins/color-4.css" class="alternate-style" title="color-4" disabled>
+    <link rel="stylesheet" href="css/skins/color-5.css" class="alternate-style" title="color-5" disabled>
+    <link rel="stylesheet" href="css/style-switcher.css">
+
 </head>
 
 <body>
+    <!-- Style Switcher start  -->
+    <div class="style-switcher">
+        <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <h4>Theme Colors</h4>
+        <div class="colors">
+            <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+            <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+            <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+        </div>
+    </div>
+    <!-- Style Switcher End -->
+
     <div class="container">
         <div class="calculator">
             <form action="">
@@ -17,38 +44,40 @@
                     <input type="text" name="display">
                 </div>
                 <div>
-                    <input type="button" value="AC">
-                    <input type="button" value="DE">
-                    <input type="button" value="." onclick="display.value+='.'">
-                    <input type="button" value="/" onclick="display.value+='/'">
+                    <input type="button" value="AC" onclick="display.value =''" class="operator">
+                    <input type="button" value="DE" onclick="display.value =display.value.toString().slice(0,-1)"
+                        class="operator">
+                    <input type="button" value="." onclick="display.value+='.'" class="operator">
+                    <input type="button" value="/" onclick="display.value+='/'" class="operator">
                 </div>
                 <div>
                     <input type="button" value="7" onclick="display.value+='7'">
                     <input type="button" value="8" onclick="display.value+='8'">
                     <input type="button" value="9" onclick="display.value+='9'">
-                    <input type="button" value="*" onclick="display.value+='*' ">
+                    <input type="button" value="*" onclick="display.value+='*' " class="operator">
                 </div>
                 <div>
                     <input type="button" value="4" onclick="display.value+='4'">
                     <input type="button" value="5" onclick="display.value+='5'">
                     <input type="button" value="6" onclick="display.value+='6'">
-                    <input type="button" value="-" onclick="display.value+='-'">
+                    <input type="button" value="-" onclick="display.value+='-'" class="operator">
                 </div>
                 <div>
                     <input type="button" value="1" onclick="display.value+='1'">
                     <input type="button" value="2" onclick="display.value+='2'">
                     <input type="button" value="3" onclick="display.value+='3'">
-                    <input type="button" value="+" onclick="display.value+='+'">
+                    <input type="button" value="+" onclick="display.value+='+'" class="operator">
                 </div>
                 <div>
                     <input type="button" value="00" onclick="display.value+='00'">
                     <input type="button" value="0" onclick="display.value+='0'">
-                    <input type="button" value="=" class="equal">
+                    <input type="button" value="=" onclick="display.value=eval(display.value)" class="operator equal">
                 </div>
             </form>
 
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
